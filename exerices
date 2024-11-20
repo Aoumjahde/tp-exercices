@@ -1,1 +1,35 @@
 
+#include <stdio.h>
+
+int main(){
+    int nmr_petales[100], nmr_nov_flower, position;
+
+    printf("Enter the number of flowers in the shop: ");
+    scanf("%d", &nmr_nov_flower);
+
+    for (int i = 0; i < nmr_nov_flower; i++) {
+        printf("Enter the number of petals for flower %d: ", i + 1);
+        scanf("%d", &nmr_petales[i]);
+        printf("Flower %d: %d petals\n", i + 1, nmr_petales[i]);
+
+    }
+    printf("\nEnter the number of petals for the new flower: ");
+    scanf("%d", &nmr_nov_flower);
+    printf("Enter the position (1 to %d) to insert the new flower: ", nmr_nov_flower + 1);
+    scanf("%d", &position);
+
+    for (int i = nmr_nov_flower; i >= position - 1; i--) {
+        nmr_petales[i + 1] = nmr_petales[i];
+    }
+
+    nmr_petales[position - 1] = nmr_petales;
+    nmr_nov_flower++;
+
+
+    for (int i = 0; i < nmr_nov_flower; i++) {
+        printf("Flower %d: %d petals\n", i + 1, nmr_petales[i]);
+    }
+
+    return 0;
+
+}
